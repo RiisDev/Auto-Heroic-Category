@@ -1,0 +1,14 @@
+bin/*
+obj/*
+.vs/*
+.vs/
+/.vs
+/.vs/*
+
+*.nupkg
+*.nuspec
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+.qodo
