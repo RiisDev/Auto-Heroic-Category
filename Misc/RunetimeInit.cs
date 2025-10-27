@@ -1,16 +1,29 @@
-﻿using System.Text.Json;
+﻿global using static AutoHeroicCategory.Misc.Writeable;
+using System.Text.Json;
 
-namespace HeroicCategory.Misc
+namespace AutoHeroicCategory.Misc
 {
-    internal static class RunetimeInit
+	public class Writeable
+	{
+        private static readonly Lock WriteLock = new();
+
+		public static void Write(string message, bool good = true) => Write(good, message);
+
+		public static void Write(bool good, string message)
+		{
+			lock (WriteLock)
+			{
+				Console.ForegroundColor = good ? ConsoleColor.Green : ConsoleColor.DarkRed;
+				Console.WriteLine(message);
+				Console.ResetColor();
+			}
+		}
+	}
+
+    public class RuntimeInit
     {
-        static void Write(string message)
-        {
-            Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine(message);
-            Console.ResetColor();
-        }
-        internal static async Task<(bool, string, Config?)> Check(string heroicData, string heroicConfig)
+
+		internal static async Task<(bool, string, Config?)> Check(string heroicData, string heroicConfig)
         {
             string[] softNames = ["gog", "legendary", "nile"];
 

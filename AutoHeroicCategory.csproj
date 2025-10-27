@@ -15,4 +15,9 @@
     <DebugType>embedded</DebugType>
   </PropertyGroup>
 
+	<PropertyGroup>
+		<DeterministicSourcePaths>true</DeterministicSourcePaths>
+		<PathMap>$(MSBuildThisFileDirectory)=./</PathMap>
+		<EnforceCodeStyleInBuild>False</EnforceCodeStyleInBuild>
+	</PropertyGroup>
 </Project>

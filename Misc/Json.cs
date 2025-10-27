@@ -1,8 +1,8 @@
 ﻿using System.Text;
-using System.Text.Json.Serialization;
 using System.Text.Json;
+using System.Text.Json.Serialization;
 
-namespace HeroicCategory.Misc
+namespace AutoHeroicCategory.Misc
 {
     public static class Json
     {

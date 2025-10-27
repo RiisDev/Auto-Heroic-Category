@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.13.35913.81
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoHeoricCategory", "AutoHeoricCategory.csproj", "{F0DF2CA1-2EE1-4CDE-91E7-433DC0EF3043}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoHeroicCategory", "AutoHeroicCategory.csproj", "{F0DF2CA1-2EE1-4CDE-91E7-433DC0EF3043}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

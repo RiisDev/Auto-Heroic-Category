@@ -1,15 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Net.Http.Headers;
-using System.Runtime.CompilerServices;
-using System.Text;
+﻿using System.Net.Http.Headers;
 using System.Text.Json;
 using System.Text.Json.Serialization;
-using System.Threading.Tasks;
 
-namespace HeroicCategory
+namespace AutoHeroicCategory
 {
     internal static class CategoryApi
     {
@@ -51,7 +44,7 @@ namespace HeroicCategory
             }
             return accessToken.AccessToken;
         }
-        internal static async Task<CategoriesData> GetCategories(string clientId, string clientSecret, HttpClient client)
+        internal static async Task<CategoriesData?> GetCategories(string clientId, string clientSecret, HttpClient client)
         {
             List<GenreData> genres = [];
             List<ThemesData> themeData = [];

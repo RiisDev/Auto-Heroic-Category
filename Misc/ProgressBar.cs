@@ -1,20 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Text;
 
-namespace HeroicCategory.Misc
+namespace AutoHeroicCategory.Misc
 {
     public class ProgressBar : IDisposable
     {
-        internal bool failedStatus = false;
+        internal bool FailedStatus = false;
         private const int BlockCount = 50;
         private readonly TimeSpan _animationInterval = TimeSpan.FromSeconds(1.0 / 8);
         private const string Animation = @"|/-\";
 
         private readonly Timer _timer;
-        private readonly object _lock = new();
+        private readonly Lock _lock = new();
 
         private double _currentProgress;
         private string _currentText = string.Empty;
@@ -102,7 +98,7 @@ namespace HeroicCategory.Misc
 
         public void DoFailed(string errorMessage)
         {
-            failedStatus = true;
+            FailedStatus = true;
             ConsoleColor oldColor = Console.ForegroundColor;
             Console.ForegroundColor = ConsoleColor.Red;
             UpdateText($"Failed: {errorMessage}");
@@ -116,7 +112,7 @@ namespace HeroicCategory.Misc
                 if (_disposed) return;
 
                 _disposed = true;
-                if (!failedStatus) 
+                if (!FailedStatus) 
                     SetDone();
             }
         }

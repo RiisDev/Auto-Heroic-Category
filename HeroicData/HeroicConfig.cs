@@ -1,6 +1,6 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace HeroicCategory.HeroicData;
+namespace AutoHeroicCategory.HeroicData;
 
 public record Favourite(
     [property: JsonPropertyName("appName")] string AppName,
