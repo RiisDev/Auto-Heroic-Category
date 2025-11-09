@@ -9,8 +9,9 @@ public record Favourite(
 
 public record Games(
     [property: JsonPropertyName("customCategories")] Dictionary<string, List<string>> CustomCategories,
-    [property: JsonPropertyName("favourites")] IReadOnlyList<Favourite> Favourites
+    [property: JsonPropertyName("favourites")] IReadOnlyList<Favourite>? Favourites
 );
+
 
 public record GeneralLogs(
     [property: JsonPropertyName("currentLogFile")] string CurrentLogFile,

@@ -53,7 +53,7 @@ namespace AutoHeroicCategory.HeroicData
 					AmazonLibrary? amazonData =
 						JsonSerializer.Deserialize<AmazonLibrary>(
 							await File.ReadAllTextAsync($@"{heroicData}\store_cache\nile_library.json"));
-					if (amazonData is not null && amazonData.Library.Count > 0)
+					if (amazonData?.Library?.Count > 0)
 						games.AddRange(amazonData.Library.Select(game =>
 							new GameData(game.Title, game.AppName + "_nile")));
 				}

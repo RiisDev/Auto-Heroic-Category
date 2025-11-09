@@ -30,8 +30,8 @@ public record Library(
 );
 
 public record AmazonLibrary(
-    [property: JsonPropertyName("library")] IReadOnlyList<Library> Library,
-    [property: JsonPropertyName("__timestamp")] Timestamp Timestamp
+    [property: JsonPropertyName("library")] IReadOnlyList<Library>? Library,
+    [property: JsonPropertyName("__timestamp")] Timestamp? Timestamp
 );
 
 public record Timestamp(

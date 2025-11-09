@@ -28,9 +28,9 @@ namespace AutoHeroicCategory
         );
 
         public record CategoriesData(
-            List<GenreData> Genres,
-            List<ThemesData> ThemeData,
-            List<GameModeData> GameModeData
+            List<GenreData>? Genres,
+            List<ThemesData>? ThemeData,
+            List<GameModeData>? GameModeData
         );
 
         internal static async Task<string> GetAuthToken(string clientId, string clientSecret)

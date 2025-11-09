@@ -29,6 +29,12 @@ CategoryApi.CategoriesData? catData = await CategoryApi.GetCategories(config.Cli
 if (catData is null) return;
 
 Write(true, "Binding category data...");
+if (catData.Genres?.Count <= 0 || catData.ThemeData?.Count <= 0 || catData.GameModeData?.Count <= 0)
+{
+	Write(false, "Failed to bind category data.");
+	return;
+}
+
 foreach (CategoryApi.GenreData genres in catData.Genres.Where(genres => !heroicConfigData.Games.CustomCategories.ContainsKey(genres.Name)))
 	heroicConfigData.Games.CustomCategories.Add(genres.Name, []);
 foreach (CategoryApi.ThemesData themes in catData.ThemeData.Where(themes => !heroicConfigData.Games.CustomCategories.ContainsKey(themes.Name)))
@@ -115,8 +121,21 @@ foreach (GameLibrary.GameData game in games.Where(game => game.AppName != "gog-r
 	}
 }
 
+if (heroicConfigData.Games.Favourites is null)
+{
+	heroicConfigData = heroicConfigData with
+	{
+		Games = heroicConfigData.Games with
+		{
+			Favourites = []
+		}
+	};
+}
+
 await File.WriteAllTextAsync(heroicConfig, Json.Serialize(heroicConfigData));
 bar.Report(games.Count, games.Count);
+
+Thread.Sleep(500);
 
 namespace AutoHeroicCategory
 {
